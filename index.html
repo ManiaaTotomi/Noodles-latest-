@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button class="theme-toggle" aria-label="Toggle dark mode" type="button">
+        <span class="theme-icon theme-icon--sun" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+        </span>
+        <span class="theme-icon theme-icon--moon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </span>
+    </button>
     <div class="cards-container">
         <div class="card">
-            <h1 class="card-title">Hobby</h1>
+            <h1 class="card-title">Vegetables</h1>
             <p class="card-price">Free</p>
             <div class="card-content">
                 <p class="includes-text">Includes:</p>
@@ -31,10 +51,32 @@
             <button class="download-button">Download</button>
         </div>
         <div class="card">
-            <h1 class="card-title">Pro</h1>
+            <h1 class="card-title">Shrimps</h1>
+            <p class="card-price">$15/mo.</p>
+            <div class="card-content">
+                <p class="includes-text">Everything in Vegetables, plus:</p>
+                <ul class="features-list">
+                    <li>
+                        <span class="checkmark">✓</span>
+                        Priority Agent responses
+                    </li>
+                    <li>
+                        <span class="checkmark">✓</span>
+                        Unlimited Tab completions
+                    </li>
+                    <li>
+                        <span class="checkmark">✓</span>
+                        Real-time collaboration
+                    </li>
+                </ul>
+            </div>
+            <button class="download-button">Get Shrimps</button>
+        </div>
+        <div class="card">
+            <h1 class="card-title">Chicken</h1>
             <p class="card-price">$20/mo.</p>
             <div class="card-content">
-                <p class="includes-text">Everything in Hobby, plus:</p>
+                <p class="includes-text">Everything in Shrimps, plus:</p>
                 <ul class="features-list">
                     <li>
                         <span class="checkmark">✓</span>
@@ -54,8 +96,31 @@
                     </li>
                 </ul>
             </div>
-            <button class="download-button">Get Pro</button>
+            <button class="download-button">Get Chicken</button>
         </div>
     </div>
+    <script>
+        const html = document.documentElement;
+        const toggle = document.querySelector('.theme-toggle');
+
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        function initTheme() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved) setTheme(saved);
+            else setTheme(prefersDark ? 'dark' : 'light');
+        }
+
+        toggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            setTheme(current === 'light' ? 'dark' : 'light');
+        });
+
+        initTheme();
+    </script>
 </body>
 </html>

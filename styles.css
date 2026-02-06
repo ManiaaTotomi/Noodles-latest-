@@ -6,12 +6,109 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f2f5f3;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.theme-toggle:hover {
+    background-color: #f0f0f0;
+}
+
+.theme-icon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+}
+
+.theme-icon--moon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-icon--sun {
+    display: none;
+}
+
+[data-theme="dark"] .theme-icon--moon {
+    display: block;
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: #363636;
+}
+
+/* Dark mode */
+[data-theme="dark"] body {
+    background-color: #1a1e1c;
+}
+
+[data-theme="dark"] .card {
+    background-color: #2a322e;
+}
+
+[data-theme="dark"] .card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .includes-text,
+[data-theme="dark"] .features-list li {
+    color: #e8e8e8;
+}
+
+[data-theme="dark"] .card-price {
+    color: #a0a0a0;
+}
+
+[data-theme="dark"] .checkmark {
+    color: #4ade80;
+}
+
+[data-theme="dark"] .download-button {
+    background-color: #36403b;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e8e8e8;
+}
+
+[data-theme="dark"] .download-button:hover {
+    background-color: #fff;
+    color: #111;
+}
+
+[data-theme="dark"] .download-button:active {
+    background-color: #e8e8e8;
+    color: #111;
 }
 
 .cards-container {
@@ -20,15 +117,23 @@ body {
     gap: 24px;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 .card {
-    background-color: #f2f1ed;
+    background-color: #dce5e1;
     border-radius: 12px;
     padding: 40px 32px;
     width: 320px;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .card-title {
@@ -46,6 +151,7 @@ body {
 
 .card-content {
     margin-bottom: 32px;
+    flex: 1;
 }
 
 .includes-text {
@@ -68,7 +174,7 @@ body {
 }
 
 .checkmark {
-    color: #4a4a4a;
+    color: #16a34a;
     font-size: 18px;
     margin-right: 12px;
     font-weight: bold;
@@ -76,7 +182,7 @@ body {
 
 .download-button {
     width: fit-content;
-    background-color: #e6e5e0;
+    background-color: #d0ddd8;
     border: none;
     border-radius: 999px;
     padding: 14px 24px;
@@ -84,13 +190,16 @@ body {
     font-weight: 500;
     color: #333;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    margin-top: auto;
 }
 
 .download-button:hover {
-    background-color: #D8D6CE;
+    background-color: #111;
+    color: #fff;
 }
 
 .download-button:active {
-    background-color: #D8D6CE;
+    background-color: #000;
+    color: #fff;
 }
