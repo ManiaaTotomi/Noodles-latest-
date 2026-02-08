@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing Plans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,9 +32,12 @@
     </button>
     <div class="cards-container">
         <div class="card">
-            <h1 class="card-title">Vegetables</h1>
-            <p class="card-price">Free</p>
-            <div class="card-content">
+            <div class="card-body">
+                <h3 class="card-title">Vegetables</h3>
+                <p class="card-price">
+                    <span class="card-price-amount">Free</span>
+                </p>
+                <div class="card-content">
                 <p class="includes-text">Includes:</p>
                 <ul class="features-list">
                     <li>
@@ -47,12 +53,18 @@
                         Limited Tab completions
                     </li>
                 </ul>
+                </div>
             </div>
             <button class="download-button">Download</button>
         </div>
         <div class="card">
-            <h1 class="card-title">Shrimps</h1>
-            <p class="card-price">$15/mo.</p>
+            <div class="card-body">
+                <h3 class="card-title">Shrimps</h3>
+            <p class="card-price">
+                <span class="card-price-amount">$15</span>
+                <span class="card-price-period">/mo.</span>
+            </p>
+
             <div class="card-content">
                 <p class="includes-text">Everything in Vegetables, plus:</p>
                 <ul class="features-list">
@@ -69,12 +81,17 @@
                         Real-time collaboration
                     </li>
                 </ul>
+                </div>
             </div>
             <button class="download-button">Get Shrimps</button>
         </div>
         <div class="card">
-            <h1 class="card-title">Chicken</h1>
-            <p class="card-price">$20/mo.</p>
+            <div class="card-body">
+                <h3 class="card-title">Chicken</h3>
+            <p class="card-price">
+            <span class="card-price-amount">$20</span>
+            <span class="card-price-period">/mo.</span>
+        </p>
             <div class="card-content">
                 <p class="includes-text">Everything in Shrimps, plus:</p>
                 <ul class="features-list">
@@ -95,6 +112,7 @@
                         Maximum context windows
                     </li>
                 </ul>
+                </div>
             </div>
             <button class="download-button">Get Chicken</button>
         </div>
